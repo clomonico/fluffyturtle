@@ -276,9 +276,9 @@ Request #4521, elevated complexity. Tier 2 SLA: 48 hours. Tier 3 SLA: 48 hours. 
 | Time | Tier 2 (Budget) | Tier 3 (Compliance) |
 |------|-----------------|---------------------|
 | Mon 9:00 AM | Clock starts | Clock starts |
-| Tue 9:00 AM (24h) | ⚠ Warning notification to budget holder | ⚠ Warning notification to Samir |
-| Tue 5:00 PM | Budget holder approves. Tier 2 done. | Clock continues. |
-| Wed 5:00 AM (44h) | — | ⚠ Urgent notification to Samir (4h remaining) |
+| Tue 9:00 AM (24h) | ⚠ Warning notification to Samir | ⚠ Warning notification to compliance approver |
+| Tue 5:00 PM | Samir approves. Tier 2 done. | Clock continues. |
+| Wed 5:00 AM (44h) | — | ⚠ Urgent notification to compliance approver (4h remaining) |
 | Wed 9:00 AM (48h) | — | 🔴 Breach. Escalation fires per #38. |
 
 The requestor's dashboard updates at each step. After Tier 2 approves, the requestor sees "Tier 2: Approved ✓ | Tier 3: 🟡 24h remaining."
@@ -530,6 +530,6 @@ The approver may receive two notifications at the breach point (one from this sp
 |-------------|--------|-------|
 | **Peter Gibbons** | Manually emails approvers when requests are stuck. No system support. | Automated notifications replace his follow-up emails. He can focus on other work. |
 | **Joanna** | Had no idea her vendor contract was sitting idle for 11 days. Zero visibility. | SLA countdown on her requestor dashboard shows exactly where her request is and when it will move. |
-| **Approvers (Samir, budget holders)** | No warning before deadlines. Escalation comes as a surprise. | 24-hour and 4-hour heads up, configurable channels, digest option for high-volume approvers. |
+| **Approvers (Samir, compliance team)** | No warning before deadlines. Escalation comes as a surprise. | 24-hour and 4-hour heads up, configurable channels, digest option for high-volume approvers. |
 | **Bill Lumbergh** | Gets escalations after the fact with no warning trail. | Escalation chain has a clear paper trail. Breach notifications document the timeline. |
 | **Michael Bolton** | No notification infrastructure to manage. | Configures templates and monitors delivery health. Preference admin view for troubleshooting. |
