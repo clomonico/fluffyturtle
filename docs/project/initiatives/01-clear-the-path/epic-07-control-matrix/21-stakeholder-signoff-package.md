@@ -3,7 +3,9 @@
 **Date:** 2026-03-02
 **Author:** Parker (Stakeholder Analyst)
 **Initiative:** Clear the Path (Initiative 1)
-**Status:** Draft — Pending Stakeholder Review
+**Status:** Revised — aligned with approved control matrix audit (PR #57, Kane review)
+
+> **Revision note:** Tier numbering now matches the approved control matrix audit (issue #19, PR #57). Tiers 1-3 are the Bobs' three mandatory regulatory control points. Tiers 4-7 are elective.
 
 ---
 
@@ -13,7 +15,7 @@ The current approval process has 7 tiers. Only 3 are regulatory. The Bobs confir
 
 The 4 elective tiers grew through accumulated patches: Tom's temporary fixes from 2019-2020 that became permanent, Samir's self-imposed secondary review he acknowledged isn't policy-mandated, and Lumbergh's informal "loop me in" gate that adds 1-2 days to every request over $5K without anyone recognizing it as an approval step.
 
-**What changes:** The 4 elective tiers are removed. The 3 mandatory control points (budget holder verification, compliance/conflict-of-interest check, segregation-of-duties sign-off) stay intact and are strengthened through intake completeness enforcement. Lumbergh's gate is replaced with a real-time dashboard that gives him better visibility than the courtesy copy ever provided.
+**What changes:** The 4 elective tiers (Tiers 4-7) are removed. The 3 mandatory control points — Tier 1 (requestor verification), Tier 2 (budget authority confirmation), Tier 3 (compliance/conflict-of-interest check, which includes segregation-of-duties sign-off and Milton's vendor terms function) — stay intact and are strengthened through intake completeness enforcement. Lumbergh's gate is replaced with a real-time dashboard that gives him better visibility than the courtesy copy ever provided.
 
 **Why now:** Average cycle time is 12 days. The Bobs confirmed the 3 regulatory steps can complete in hours with proper documentation. The organization is paying a time tax of roughly 9 extra days per request for controls that compliance never required. Meanwhile, workarounds (PO-splitting, credit card bypass, shadow SharePoint lists) have created untracked compliance gaps that are worse than the risks the elective tiers were meant to prevent.
 
@@ -25,9 +27,9 @@ The 4 elective tiers grew through accumulated patches: Tom's temporary fixes fro
 
 | Tier | Description | Classification | Basis | Status |
 |---|---|---|---|---|
-| **Tier 1: Budget Holder Verification** | Financial authorization by the budget owner for the spend | **Mandatory** | Bobs' control matrix — regulatory requirement | Retained, strengthened with intake completeness |
-| **Tier 2: Compliance / Conflict-of-Interest Check** | Review that triggers on consolidated amounts to verify vendor relationships and COI | **Mandatory** | Bobs' control matrix — regulatory control | Retained, PO-splitting bypass to be closed |
-| **Tier 3: Segregation-of-Duties Sign-Off** | Independent sign-off confirming requestor and approver are not the same party | **Mandatory** | Bobs' control matrix — regulatory requirement | Retained |
+| **Tier 1: Requestor Verification** | Department head confirms the requestor has authority to submit the request and that it aligns with departmental need | **Mandatory** | Bobs' control matrix — first regulatory control point, segregation of duties at point of origin | Retained |
+| **Tier 2: Budget Authority Confirmation** | Finance approver verifies budget codes, allocation, cost center, and available funding | **Mandatory** | Bobs' control matrix — second regulatory control point, financial authorization | Retained, strengthened with intake completeness |
+| **Tier 3: Compliance / Conflict-of-Interest Check** | Segregation of duties, conflict-of-interest conditions, vendor compliance on consolidated amounts. Includes Milton's vendor terms verification function. | **Mandatory** | Bobs' control matrix — third regulatory control point, includes segregation-of-duties sign-off | Retained, PO-splitting bypass to be closed, Milton's function to be formalized |
 | **Tier 4: Tom's Routing Accuracy Review** | Tom reviews whether Peter routed to the correct approver | **Elective** | Added by Tom in 2019; Peter skips on 70% of requests with no consequence | Removed |
 | **Tier 5: Tom's 2020 Exception Patch** | Broad exception routing added after a duplicate vendor payment; applies to all vendor requests, not just at-risk ones | **Elective** | Temporary patch from 2020 that became permanent; Tom acknowledged it could be scoped down | Removed |
 | **Tier 6: Samir's Secondary Finance Review** | Secondary cross-reference against live budget, applied to all requests regardless of size | **Elective** | Self-imposed by Samir; not policy-mandated; he acknowledged he wouldn't need it with upstream visibility | Removed |
@@ -47,7 +49,7 @@ The three retained tiers map directly to the control matrix you published 18 mon
 
 | Your Requirement | How It's Addressed |
 |---|---|
-| Three regulatory control points | Retained as the complete approval chain — budget verification, COI check, segregation of duties |
+| Three regulatory control points | Retained as the complete approval chain — Tier 1 (requestor verification), Tier 2 (budget authority confirmation), Tier 3 (compliance/COI check including segregation of duties) |
 | Immutable audit log | Preserved in current system; no architectural change |
 | Identity verification at every node | Maintained — no shared accounts, no "approved on behalf of" |
 | Documentation completeness at time of decision | **New: intake enforcement** — requests cannot be submitted without required documentation attached |
