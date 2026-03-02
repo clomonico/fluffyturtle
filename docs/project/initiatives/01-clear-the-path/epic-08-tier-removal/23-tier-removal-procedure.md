@@ -23,22 +23,22 @@ The 4 elective tiers are removed in the following order, progressing from lowest
 
 | Order | Current Tier # | Tier Name | Owner | Risk Level | Rationale for Position |
 |-------|----------------|-----------|-------|------------|----------------------|
-| 1st | Tier 4 | Operational Process Check | Tom Smykowski | Lowest | Peter already skips this on 70% of requests with no consequences. No regulatory basis. No downstream dependencies. Removing it changes almost nothing operationally because it's already being bypassed. |
-| 2nd | Tier 3 | Secondary Budget Review | Samir Nagheenanajar | Low | Samir acknowledged it's not policy-mandated. He duplicates work from Tier 2 (Budget Holder Verification) because of a visibility gap, not a regulatory requirement. Once removed, Tier 2 covers the regulatory check. |
-| 3rd | Tier 1 | Departmental Review | Tom Smykowski | Medium | This is Tom's other legacy step. Unlike Tier 4, some department managers have built habits around it. Removal disrupts a visible (if unnecessary) touchpoint. The intake gate replaces its documentation-check function. |
-| 4th | Tier 6 | Executive Visibility Gate | Bill Lumbergh | Highest | Lumbergh has executive authority and may resist even with a dashboard replacement. His gate is the most organizationally sensitive removal. The dashboard must be live and validated before this tier is deactivated. |
+| 1st | Tier 4 | Tom's Routing Accuracy Review | Tom Smykowski | Lowest | Peter already skips this on 70% of requests with no consequences. No regulatory basis. No downstream dependencies. Removing it changes almost nothing operationally because it's already being bypassed. |
+| 2nd | Tier 5 | Tom's Exception Routing Path | Tom Smykowski | Low | Over-scoped temporary patch from 2020. Even Tom acknowledged it could be narrower. The real vendor verification is done by Milton informally at Tier 3. Milton's function must be formalized into Tier 3 before this removal. |
+| 3rd | Tier 6 | Samir's Secondary Review | Samir Nagheenanajar | Medium | Samir acknowledged it's not policy-mandated. He duplicates work from Tier 2 (Budget Authority Confirmation) because of a visibility gap, not a regulatory requirement. Once removed, Tier 2 covers the regulatory check. Spacing from Tom's tiers gives him time to see successful removals. |
+| 4th | Tier 7 | Lumbergh's Informal Visibility Gate | Bill Lumbergh | Highest | Lumbergh has executive authority and may resist even with a dashboard replacement. His gate is the most organizationally sensitive removal. The dashboard must be live and validated before this tier is deactivated. |
 
 **Why this order works:**
 - Tier 4 first because it's already being bypassed, making it functionally removed. Formalizing its removal carries near-zero risk and builds evidence that the process works without it.
-- Tier 3 second because Samir himself said it's redundant. His buy-in is already there.
-- Tier 1 third because it affects Tom again, and doing both of his tiers back-to-back would amplify his resistance. Spacing them with Samir's tier in between gives Tom time to see that Tier 4's removal caused no problems.
-- Tier 6 last because Lumbergh needs the most evidence and the most runway. By the time we reach his gate, three tiers are successfully deactivated and the dashboard has been live long enough to prove its value.
+- Tier 5 second because it's Tom's other tier and removing both of Tom's tiers together (before the more sensitive Samir and Lumbergh removals) reduces the total number of "impact events" for stakeholders. Milton's vendor terms function must be formalized into Tier 3 before this removal.
+- Tier 6 third because Samir himself said it's redundant. His buy-in is there, and by this point two tiers are successfully removed.
+- Tier 7 last because Lumbergh needs the most evidence and the most runway. By the time we reach his gate, three tiers are successfully deactivated and the dashboard has been live long enough to prove its value.
 
 ---
 
 ## 2. Tier Removal Procedures
 
-### 2.1 Tier 4 — Operational Process Check (Tom Smykowski)
+### 2.1 Tier 4 — Tom's Routing Accuracy Review (Tom Smykowski)
 
 **Removal Order:** 1st
 **Scheduled Window:** Weekend Day 1, Saturday 6:00 AM – 10:00 AM
@@ -47,10 +47,10 @@ The 4 elective tiers are removed in the following order, progressing from lowest
 
 | Field | Detail |
 |-------|--------|
-| **System name** | Operational Process Check (confirm exact name/ID in Phase 1 inventory) |
+| **System name** | Tom's Routing Accuracy Review (confirm exact name/ID in Phase 1 inventory) |
 | **Position in chain** | 4th of 7 sequential approval steps |
 | **Owner/Reviewer** | Tom Smykowski |
-| **What it checks** | Described as an "operational process check." Tom cannot articulate the full scope without consulting his files. Originally a temporary patch that became permanent. |
+| **What it checks** | Described as a "routing accuracy check." Tom cannot articulate the full scope without consulting his files. Originally a temporary duty that became permanent. |
 | **Routing behavior** | Sequential — request waits at this tier until Tom acts or Peter bypasses it via shadow workflow |
 | **Current bypass rate** | ~70% (Peter routes around it on most requests) |
 
@@ -69,7 +69,7 @@ The 4 elective tiers are removed in the following order, progressing from lowest
 
 1. **Michael Bolton** takes a full configuration snapshot of production routing (timestamp and label the backup)
 2. Navigate to the routing configuration module in the production environment
-3. Locate Tier 4 (Operational Process Check) by system name/ID
+3. Locate Tier 4 (Tom's Routing Accuracy Review) by system name/ID
 4. Set the tier status to **"Inactive"** (do NOT delete the tier record)
 5. Update routing rules to skip Tier 4: requests that previously routed from Tier 3 → Tier 4 → Tier 5 should now route from Tier 3 → Tier 5 directly
 6. Verify that the routing rule update is syntactically valid and does not create orphaned paths
@@ -108,7 +108,7 @@ The 4 elective tiers are removed in the following order, progressing from lowest
 
 ---
 
-### 2.2 Tier 3 — Secondary Budget Review (Samir Nagheenanajar)
+### 2.2 Tier 5 — Tom's Exception Routing Path (Tom Smykowski)
 
 **Removal Order:** 2nd
 **Scheduled Window:** Weekend Day 1 (following weekend), Saturday 6:00 AM – 10:00 AM
@@ -117,19 +117,21 @@ The 4 elective tiers are removed in the following order, progressing from lowest
 
 | Field | Detail |
 |-------|--------|
-| **System name** | Secondary Budget Review (confirm exact name/ID in Phase 1 inventory) |
-| **Position in chain** | 3rd of 7 sequential approval steps |
-| **Owner/Reviewer** | Samir Nagheenanajar |
-| **What it checks** | Re-verifies everything the budget holder already checked at Tier 2, including funds availability, budget line alignment, and spend authority |
-| **Routing behavior** | Sequential — request waits here until Samir completes his review |
-| **Duplication** | 100% overlap with Tier 2 (Budget Holder Verification). Samir described this as a self-imposed safety net due to no visibility into upstream verifications. |
+| **System name** | Tom's Exception Routing Path (confirm exact name/ID in Phase 1 inventory) |
+| **Position in chain** | 5th of 7 sequential approval steps |
+| **Owner/Reviewer** | Tom Smykowski |
+| **What it checks** | Routes exception cases (vendor payment discrepancies, duplicate invoices) through an alternate path Tom created in 2020 as a temporary patch for vendor-related issues. The patch hardened into a permanent routing step for all requests containing vendor references. |
+| **Routing behavior** | Sequential — request waits here until Tom or his exception routing logic processes it. Originally scoped to intercept only vendor duplicates; it now triggers on any request with a vendor line item. |
+| **Scope creep** | Even Tom acknowledged this step could be narrower. Over-triggers on requests that don't actually involve vendor exceptions. |
+| **Milton dependency** | Milton Waddams informally performs vendor terms verification (47 tracked vendors, $14K late-fee history) through this routing path. Milton's function is real and must be preserved. Before this tier is deactivated, Milton's vendor terms check must be formalized as a sub-step within Tier 3 (Compliance / COI Check). |
 
 #### Pre-Removal Verification Checklist
 
 - [ ] Tier classification document confirms this tier is classified as elective
 - [ ] The Bobs have signed off that no regulatory control depends on this tier
-- [ ] Samir has been briefed and acknowledges this tier is not policy-mandated (per his own interview statements)
-- [ ] Confirmed that Samir does NOT hold a mandatory role at any of the 3 remaining regulatory tiers (Open Question #2 from implementation plan resolved)
+- [ ] Tom Smykowski has been briefed (this is his second tier being removed; manage this communication carefully — present both removals as recognition that his institutional knowledge is being captured, not discarded)
+- [ ] **Milton's vendor terms verification has been formalized into Tier 3 (Compliance / COI Check)** — this is a hard prerequisite. Milton's function must be documented, assigned, and operational within Tier 3 before Tier 5 is deactivated. Failure to preserve Milton's check creates real vendor compliance risk.
+- [ ] Verified that Milton's 47-vendor tracking list and $14K late-fee history data have been migrated to the Tier 3 compliance data store
 - [ ] All active requests currently sitting at this tier have been inventoried
 - [ ] Tier 4 deactivation has been stable for at least 5 business days with no issues
 - [ ] Sandbox testing of this tier's deactivation completed successfully
@@ -140,28 +142,105 @@ The 4 elective tiers are removed in the following order, progressing from lowest
 #### Deactivation Steps
 
 1. **Michael Bolton** takes a full configuration snapshot of production routing
+2. **Pre-flight check:** Confirm Milton's vendor terms verification is operational within Tier 3. Run a test vendor-related request through Tier 3 and verify Milton's check fires correctly before proceeding.
+3. Navigate to the routing configuration module in the production environment
+4. Locate Tier 5 (Tom's Exception Routing Path) by system name/ID
+5. Set the tier status to **"Inactive"** (do NOT delete)
+6. Update routing rules: requests that previously routed from Tier 3 → Tier 4 (now inactive) → Tier 5 → Tier 6 should now route from Tier 3 → Tier 6 directly (both Tier 4 and Tier 5 are now inactive)
+7. Verify no orphaned routing paths exist, particularly for the exception routing logic that Tier 5 used for vendor-flagged requests
+8. Run a test request through the updated path to confirm it bypasses both Tier 4 and Tier 5 (both now inactive) and reaches Tier 6
+9. **Run a vendor-related test request** specifically to verify that Milton's vendor terms check executes within Tier 3 and the request does not stall looking for the old Tier 5 exception path
+10. Confirm historical request data and audit logs at Tier 5 remain intact
+11. Document all changes with timestamps and before/after values
+
+#### In-Flight Request Handling
+
+**Strategy: Drain then deactivate**
+
+- Before the deactivation window, identify all requests currently sitting at Tier 5
+- For requests in Tom's exception queue: Tom processes them through to the next tier by end of business Friday. For requests he hasn't touched, route them directly to the next active tier (Tier 6) with a note
+- **Pay special attention to vendor-flagged requests.** Any request at Tier 5 that involves vendor terms should be flagged for Milton to verify within Tier 3 after it advances. Do not let vendor requests pass through without Milton's check.
+- **Target: zero requests at Tier 5 before deactivation.** Tom has two tiers being removed; ensure communication frames this constructively.
+
+#### Rollback Procedure
+
+1. Navigate to routing configuration module
+2. Set Tier 5 status back to **"Active"**
+3. Restore routing rules from the pre-change configuration backup
+4. Run a test request (including a vendor-flagged request) to confirm the exception routing path is receiving requests again
+5. Verify audit trail integrity for requests processed during the deactivation period
+6. If Milton's Tier 3 integration was the failure point, keep Tier 5 active while the Tier 3 integration is repaired. Tier 5 serves as the fallback for Milton's function until Tier 3 can handle it natively.
+7. Notify Tom, Milton, and stakeholders that the tier has been re-enabled
+
+**Estimated rollback time:** Under 2 hours
+
+#### Post-Removal Validation
+
+- [ ] Route 3 test requests through the chain; confirm none attempt to route to Tier 4 or Tier 5
+- [ ] **Route 2 vendor-related test requests** through the chain; confirm Milton's vendor terms check fires at Tier 3 (Compliance / COI Check) and does not look for the old Tier 5 exception path
+- [ ] Verify Milton can access his vendor tracking data within the Tier 3 tooling
+- [ ] Check system logs for errors referencing the deactivated tier or the exception routing logic
+- [ ] Historical reports still display Tier 5 data for previously processed requests
+- [ ] Monitor for 48 hours: no unexpected stalls or routing failures, especially on vendor-related requests
+- [ ] Confirm with Tom that he is no longer receiving exception routing requests at this tier
+- [ ] Confirm with Milton that his vendor verification function is working within Tier 3
+
+---
+
+### 2.3 Tier 6 — Samir's Secondary Review (Samir Nagheenanajar)
+
+**Removal Order:** 3rd
+**Scheduled Window:** Weekend Day 1 (third weekend), Saturday 6:00 AM – 10:00 AM
+
+#### Current Configuration
+
+| Field | Detail |
+|-------|--------|
+| **System name** | Samir's Secondary Review (confirm exact name/ID in Phase 1 inventory) |
+| **Position in chain** | 6th of 7 sequential approval steps |
+| **Owner/Reviewer** | Samir Nagheenanajar |
+| **What it checks** | Re-verifies everything the budget holder already checked at Tier 2 (Budget Authority Confirmation), including funds availability, budget line alignment, and spend authority |
+| **Routing behavior** | Sequential — request waits here until Samir completes his review |
+| **Duplication** | 100% overlap with Tier 2 (Budget Authority Confirmation). Samir described this as a self-imposed safety net due to no visibility into upstream verifications. |
+
+#### Pre-Removal Verification Checklist
+
+- [ ] Tier classification document confirms this tier is classified as elective
+- [ ] The Bobs have signed off that no regulatory control depends on this tier
+- [ ] Samir has been briefed and acknowledges this tier is not policy-mandated (per his own interview statements)
+- [ ] Confirmed that Samir's Tier 2 (Budget Authority Confirmation) role is unaffected — he retains his mandatory function
+- [ ] All active requests currently sitting at this tier have been inventoried
+- [ ] Tiers 4 and 5 deactivation have been stable for at least 5 business days with no issues
+- [ ] Sandbox testing of this tier's deactivation completed successfully
+- [ ] No routing rules reference this tier as a prerequisite for any mandatory tier
+- [ ] Configuration backup of production routing taken and verified restorable
+- [ ] Michael Bolton confirms technical readiness and is available for the deactivation window
+
+#### Deactivation Steps
+
+1. **Michael Bolton** takes a full configuration snapshot of production routing
 2. Navigate to the routing configuration module in the production environment
-3. Locate Tier 3 (Secondary Budget Review) by system name/ID
+3. Locate Tier 6 (Samir's Secondary Review) by system name/ID
 4. Set the tier status to **"Inactive"** (do NOT delete)
-5. Update routing rules: requests that previously routed from Tier 2 → Tier 3 → Tier 4 (now inactive) → Tier 5 should now route from Tier 2 → Tier 5 directly
+5. Update routing rules: requests that previously routed from Tier 3 → Tier 6 (with Tiers 4 and 5 already inactive) → Tier 7 should now route from Tier 3 → Tier 7 directly
 6. Verify no orphaned routing paths exist
-7. Run a test request through the updated path to confirm it bypasses both Tier 3 and Tier 4 (both now inactive) and reaches Tier 5
-8. Confirm historical request data and audit logs at Tier 3 remain intact
+7. Run a test request through the updated path to confirm it bypasses Tier 6 and reaches Tier 7
+8. Confirm historical request data and audit logs at Tier 6 remain intact
 9. Document all changes with timestamps and before/after values
 
 #### In-Flight Request Handling
 
 **Strategy: Drain then deactivate**
 
-- Before the deactivation window, identify all requests currently sitting at Tier 3
-- For requests in Samir's queue: Samir completes his review of any request he's already started. For requests he hasn't touched, route them directly to the next active tier with a note
+- Before the deactivation window, identify all requests currently sitting at Tier 6
+- For requests in Samir's queue: Samir completes his review of any request he's already started. For requests he hasn't touched, route them directly to the next active tier (Tier 7) with a note
 - Samir's review queue should be cleared by end of business Friday before the Saturday deactivation window
-- **Target: zero requests at Tier 3 before deactivation.** Samir is likely to cooperate given his own statements about the tier being redundant
+- **Target: zero requests at Tier 6 before deactivation.** Samir is likely to cooperate given his own statements about the tier being redundant
 
 #### Rollback Procedure
 
 1. Navigate to routing configuration module
-2. Set Tier 3 status back to **"Active"**
+2. Set Tier 6 status back to **"Active"**
 3. Restore routing rules from the pre-change configuration backup
 4. Run a test request to confirm Samir's review tier is receiving requests again
 5. Verify audit trail integrity for requests processed during the deactivation period
@@ -171,90 +250,16 @@ The 4 elective tiers are removed in the following order, progressing from lowest
 
 #### Post-Removal Validation
 
-- [ ] Route 3 test requests through the chain; confirm none attempt to route to Tier 3 or Tier 4
-- [ ] Verify that Tier 2 (Budget Holder Verification) continues to function correctly and is now followed by Tier 5 (Compliance) directly
+- [ ] Route 3 test requests through the chain; confirm none attempt to route to Tier 4, Tier 5, or Tier 6
+- [ ] Verify that Tier 2 (Budget Authority Confirmation) continues to function correctly — Samir's mandatory role is unaffected
 - [ ] Check system logs for errors referencing the deactivated tier
-- [ ] Historical reports still display Tier 3 data for previously processed requests
+- [ ] Historical reports still display Tier 6 data for previously processed requests
 - [ ] Monitor for 48 hours: no unexpected stalls or routing failures
-- [ ] Confirm with Samir that he is no longer receiving review requests at this tier
+- [ ] Confirm with Samir that he is no longer receiving review requests at Tier 6 but continues to receive them at Tier 2
 
 ---
 
-### 2.3 Tier 1 — Departmental Review (Tom Smykowski)
-
-**Removal Order:** 3rd
-**Scheduled Window:** Weekend Day 1 (third weekend), Saturday 6:00 AM – 10:00 AM
-
-#### Current Configuration
-
-| Field | Detail |
-|-------|--------|
-| **System name** | Departmental Review (confirm exact name/ID in Phase 1 inventory) |
-| **Position in chain** | 1st of 7 sequential approval steps (entry point after submission) |
-| **Owner/Reviewer** | Requesting department manager (varies) |
-| **What it checks** | Manager confirms the request "makes sense." No specific regulatory criteria. Tom added it as a quality gate. |
-| **Routing behavior** | Sequential — first stop after submission. Request waits here until department manager acts. |
-| **Replacement** | Intake gate (documentation completeness enforcement) replaces the quality-check function. Budget holder at Tier 2 evaluates business justification. |
-
-#### Pre-Removal Verification Checklist
-
-- [ ] Tier classification document confirms this tier is classified as elective
-- [ ] The Bobs have signed off that no regulatory control depends on this tier
-- [ ] Tom Smykowski has been briefed (this is his second tier being removed; manage this communication carefully)
-- [ ] Department managers who previously reviewed at this tier have been notified that the intake gate now handles documentation validation
-- [ ] Intake gate validation rules are live and functioning in production (requests cannot enter the queue incomplete)
-- [ ] All active requests currently sitting at this tier have been inventoried
-- [ ] Tiers 3 and 4 deactivation have been stable with no issues
-- [ ] Sandbox testing of this tier's deactivation completed successfully
-- [ ] No routing rules reference this tier as a prerequisite for any mandatory tier
-- [ ] Configuration backup taken and verified
-- [ ] Michael Bolton confirms technical readiness
-
-#### Deactivation Steps
-
-1. **Michael Bolton** takes a full configuration snapshot of production routing
-2. Navigate to the routing configuration module
-3. Locate Tier 1 (Departmental Review) by system name/ID
-4. Set the tier status to **"Inactive"** (do NOT delete)
-5. Update routing rules: requests that previously routed from submission → Tier 1 → Tier 2 should now route from submission (after passing the intake gate) → Tier 2 directly
-6. Verify the intake gate still functions correctly as the new first touchpoint — submissions must still be validated for completeness before entering the queue
-7. Run a test request from submission through intake gate → Tier 2 to confirm the path works end-to-end
-8. Confirm historical data and audit logs at Tier 1 remain intact
-9. Document all changes with timestamps
-
-#### In-Flight Request Handling
-
-**Strategy: Drain then deactivate**
-
-- Identify all requests currently sitting at Tier 1 awaiting department manager review
-- Since this is the entry tier, there may be a higher volume of in-flight requests than other tiers
-- For requests already at Tier 1: department managers complete their review by end of business Friday. Any remaining requests are manually routed to Tier 2 with a note
-- Requests submitted after the deactivation will flow directly to Tier 2 through the intake gate — no action needed for new submissions
-- **Target: zero requests at Tier 1 before deactivation.** If volume is high, extend the drain period to the previous Thursday and notify department managers of the Friday deadline
-
-#### Rollback Procedure
-
-1. Navigate to routing configuration module
-2. Set Tier 1 status back to **"Active"**
-3. Restore routing rules from pre-change backup
-4. Run a test request to confirm departmental review is receiving requests again
-5. Verify the intake gate continues to function even with Tier 1 re-enabled (they're independent)
-6. Notify department managers and stakeholders
-
-**Estimated rollback time:** Under 2 hours
-
-#### Post-Removal Validation
-
-- [ ] Route 3 test requests from submission through the full chain; confirm they land at Tier 2 (Budget Holder Verification) as the first approval step after the intake gate
-- [ ] Verify the intake gate is correctly blocking incomplete submissions (it must not break when Tier 1 is removed)
-- [ ] Check system logs for errors referencing Tier 1
-- [ ] Historical reports still display Tier 1 data for old requests
-- [ ] Monitor for 48 hours: no routing failures, no requests landing in unexpected queues
-- [ ] Collect feedback from 2-3 department managers on whether the transition is smooth
-
----
-
-### 2.4 Tier 6 — Executive Visibility Gate (Bill Lumbergh)
+### 2.4 Tier 7 — Lumbergh's Informal Visibility Gate (Bill Lumbergh)
 
 **Removal Order:** 4th (final)
 **Scheduled Window:** Weekend Day 1 (fourth weekend), Saturday 6:00 AM – 10:00 AM
@@ -263,8 +268,8 @@ The 4 elective tiers are removed in the following order, progressing from lowest
 
 | Field | Detail |
 |-------|--------|
-| **System name** | Executive Visibility Gate (confirm exact name/ID in Phase 1 inventory) |
-| **Position in chain** | 6th of 7 sequential approval steps |
+| **System name** | Lumbergh's Informal Visibility Gate (confirm exact name/ID in Phase 1 inventory) |
+| **Position in chain** | 7th of 7 sequential approval steps (final step) |
 | **Owner/Reviewer** | Bill Lumbergh |
 | **What it checks** | Nothing, functionally. Lumbergh doesn't reject requests. He reviews for awareness. Described as a "courtesy copy" by Lumbergh, a "1-2 day delay" by Peter. |
 | **Routing behavior** | Sequential — request waits here until Lumbergh acknowledges. Adds 1-2 business days to every request over $5K. |
@@ -279,7 +284,7 @@ The 4 elective tiers are removed in the following order, progressing from lowest
 - [ ] Dashboard alerts are functioning: SLA breach warnings, high-value request notifications, rejections, volume spikes
 - [ ] Lumbergh is NOT a designated approver at any of the 3 mandatory regulatory tiers (confirm during Phase 1)
 - [ ] All active requests currently sitting at this tier have been inventoried
-- [ ] Tiers 1, 3, and 4 deactivation have been stable with no issues
+- [ ] Tiers 4, 5, and 6 deactivation have been stable with no issues
 - [ ] Sandbox testing of this tier's deactivation completed successfully
 - [ ] Configuration backup taken and verified
 - [ ] Michael Bolton confirms technical readiness
@@ -288,28 +293,28 @@ The 4 elective tiers are removed in the following order, progressing from lowest
 
 1. **Michael Bolton** takes a full configuration snapshot of production routing
 2. Navigate to the routing configuration module
-3. Locate Tier 6 (Executive Visibility Gate) by system name/ID
+3. Locate Tier 7 (Lumbergh's Informal Visibility Gate) by system name/ID
 4. Set the tier status to **"Inactive"** (do NOT delete)
-5. Update routing rules: requests that previously routed from Tier 5 → Tier 6 → Tier 7 should now route from Tier 5 → Tier 7 directly
+5. Update routing rules: requests that previously routed from Tier 3 → Tier 7 (with Tiers 4, 5, and 6 already inactive) should now complete at Tier 3. Tier 3 (Compliance / COI Check) becomes the final approval step.
 6. Verify the dashboard continues to receive data even after the tier is deactivated (the dashboard reads from the approval system's data, not from the tier itself — confirm this architecture with Michael)
-7. Run a test request through Tier 5 → Tier 7 to confirm the path works
+7. Run a test request through the full chain: Tier 1 (Requestor Verification) → Tier 2 (Budget Authority Confirmation) → Tier 3 (Compliance / COI Check) and confirm the request completes at Tier 3 without attempting to route further
 8. Verify Lumbergh receives a dashboard notification for the test request (proving the dashboard works independently of the approval gate)
-9. Confirm historical data and audit logs at Tier 6 remain intact
+9. Confirm historical data and audit logs at Tier 7 remain intact
 10. Document all changes with timestamps
 
 #### In-Flight Request Handling
 
 **Strategy: Fast-track then deactivate**
 
-- Identify all requests currently sitting at Tier 6 awaiting Lumbergh's acknowledgment
+- Identify all requests currently sitting at Tier 7 awaiting Lumbergh's acknowledgment
 - Lumbergh acknowledges all pending requests by end of business Friday. Since he never rejects anything, this is a formality of clicking through his queue
-- If Lumbergh is unavailable Friday, Peter or Michael manually advances the requests to Tier 7 (Peter has been doing this informally already)
-- **Target: zero requests at Tier 6 before deactivation**
+- If Lumbergh is unavailable Friday, Peter or Michael manually advances the requests to completion (Peter has been doing this informally already)
+- **Target: zero requests at Tier 7 before deactivation**
 
 #### Rollback Procedure
 
 1. Navigate to routing configuration module
-2. Set Tier 6 status back to **"Active"**
+2. Set Tier 7 status back to **"Active"**
 3. Restore routing rules from pre-change backup
 4. Run a test request to confirm Lumbergh's gate is receiving requests again
 5. **Keep the dashboard live regardless** — it provides value whether or not the gate exists
@@ -319,12 +324,12 @@ The 4 elective tiers are removed in the following order, progressing from lowest
 
 #### Post-Removal Validation
 
-- [ ] Route 3 test requests through the chain; confirm they flow from Tier 5 (Compliance) directly to Tier 7 (Financial Controls Sign-off)
+- [ ] Route 3 test requests through the chain; confirm they complete at Tier 3 (Compliance / COI Check) without attempting to route to any deactivated tier
 - [ ] Verify the Lumbergh Dashboard shows the test requests with correct status
 - [ ] Verify dashboard alerts fire correctly (e.g., high-value request notification)
-- [ ] Check system logs for errors referencing the deactivated tier
-- [ ] Historical reports still display Tier 6 data for old requests
-- [ ] Monitor for 48 hours: no routing failures, no requests stalling between Tier 5 and Tier 7
+- [ ] Check system logs for errors referencing any deactivated tier
+- [ ] Historical reports still display Tier 7 data for old requests
+- [ ] Monitor for 48 hours: no routing failures, no requests stalling after Tier 3
 - [ ] Check that Lumbergh is not re-inserting himself informally (asking reviewers to "hold requests until I see them")
 - [ ] Confirm with Peter that the 1-2 day delay per request is eliminated
 
@@ -338,14 +343,14 @@ All tier removals should occur during **off-hours weekend windows** to minimize 
 
 | Removal | Target Window | Duration | Day |
 |---------|---------------|----------|-----|
-| Tier 4 (Tom's process check) | Saturday 6:00 AM – 10:00 AM | 4 hours | Week 5, Day 1 |
-| Tier 3 (Samir's review) | Saturday 6:00 AM – 10:00 AM | 4 hours | Week 5, Day 1 (or Week 6 if spacing preferred) |
-| Tier 1 (Departmental review) | Saturday 6:00 AM – 10:00 AM | 4 hours | Week 6, Day 1 |
-| Tier 6 (Lumbergh's gate) | Saturday 6:00 AM – 10:00 AM | 4 hours | Week 7, Day 1 |
+| Tier 4 (Tom's Routing Accuracy Review) | Saturday 6:00 AM – 10:00 AM | 4 hours | Week 5, Day 1 |
+| Tier 5 (Tom's Exception Routing Path) | Saturday 6:00 AM – 10:00 AM | 4 hours | Week 5, Day 1 (or Week 6 if spacing preferred) |
+| Tier 6 (Samir's Secondary Review) | Saturday 6:00 AM – 10:00 AM | 4 hours | Week 6, Day 1 |
+| Tier 7 (Lumbergh's Visibility Gate) | Saturday 6:00 AM – 10:00 AM | 4 hours | Week 7, Day 1 |
 
-**Option A (compressed):** Remove Tier 4 and Tier 3 on the same weekend (morning: Tier 4, afternoon: Tier 3 after Tier 4 validation passes). This compresses the schedule but increases the blast radius if something goes wrong.
+**Option A (compressed):** Remove Tier 4 and Tier 5 on the same weekend (morning: Tier 4, afternoon: Tier 5 after Tier 4 validation passes). Both are Tom's tiers and removing them together reduces stakeholder disruption. However, Milton's vendor terms integration into Tier 3 must be verified between the two removals, which may make same-day execution risky.
 
-**Option B (spaced, recommended):** One removal per weekend. Each tier gets a full week of monitoring before the next removal begins. This is slower but gives maximum evidence accumulation and stakeholder comfort.
+**Option B (spaced, recommended):** One removal per weekend. Each tier gets a full week of monitoring before the next removal begins. This is slower but gives maximum evidence accumulation and stakeholder comfort. Particularly important for Tier 5 because Milton's vendor terms function needs real-world validation within Tier 3 before the next removal begins.
 
 ### Why Weekends
 - Lowest request submission volume
@@ -372,15 +377,17 @@ Each tier removal requires communication before, during, and after.
 | All approvers in the chain | Email | "This weekend, [Tier Name] will be deactivated as part of the approved process simplification. Requests will route around this step starting Monday. No action needed from you. Contact [Lambert/Michael] with questions." |
 | Requestors (via department managers) | Email from department managers | "Starting Monday, the approval process will have one fewer step. Your submission experience does not change. Approvals may be faster." |
 | Michael Bolton | Standup or sync | Confirm he has the configuration backup, the deactivation steps reviewed, and his availability locked for Saturday morning. |
+| Milton Waddams (Tier 5 removal only) | 1:1 meeting | Confirm his vendor terms verification is operational within Tier 3. Walk through 2-3 vendor requests together to verify. |
 
 ### During Each Removal (Saturday morning)
 
 | Checkpoint | When | Who |
 |------------|------|-----|
 | Deactivation started | At execution start | Michael → Lambert (Slack/Teams message) |
-| Deactivation complete | After step 4 (status set to Inactive) | Michael → Lambert |
-| Routing rules updated | After step 5 | Michael → Lambert |
+| Deactivation complete | After status set to Inactive | Michael → Lambert |
+| Routing rules updated | After routing rule change | Michael → Lambert |
 | Test request passed | After test request completes | Michael → Lambert |
+| Vendor test passed (Tier 5 only) | After vendor-flagged test completes at Tier 3 | Michael → Lambert + Milton |
 | Post-removal validation started | After test | Michael → Lambert |
 | Validation complete, all clear | After validation checklist passes | Lambert → stakeholders (email) |
 
@@ -390,7 +397,7 @@ Each tier removal requires communication before, during, and after.
 |----------|---------|---------|
 | All stakeholders | Email | "[Tier Name] has been successfully deactivated. Monitoring is active. The approval process now has [N] steps. No issues observed over the weekend. Reach out to [Lambert] with any questions." |
 | The Bobs | Brief email or Slack | "Deactivation complete. Audit trail intact. Historical data preserved. Will send 48-hour monitoring summary on Wednesday." |
-| Lumbergh | Dashboard walkthrough (for Tier 6 only) | Confirm dashboard is capturing all data that the gate previously surfaced. |
+| Lumbergh | Dashboard walkthrough (for Tier 7 only) | Confirm dashboard is capturing all data that the gate previously surfaced. |
 
 ---
 
@@ -403,21 +410,22 @@ Run the following tests within 4 hours of deactivation:
 1. **Happy path test:** Submit 3 requests of different types (standard purchase, renewal, high-value). Verify each routes correctly through remaining active tiers without hitting the deactivated tier.
 2. **Audit trail test:** For each test request, verify the audit log captures reviewer name, timestamp, and decision at every active tier.
 3. **Edge case test:** Submit a request that historically required action at the deactivated tier (if identifiable). Verify it routes cleanly.
-4. **Dashboard test (after Tier 6 removal):** Verify Lumbergh's dashboard shows test requests in real time.
-5. **Intake gate test (after Tier 1 removal):** Submit an intentionally incomplete request. Verify it's blocked before entering the queue.
+4. **Vendor terms test (after Tier 5 removal):** Submit a request involving a vendor from Milton's tracking list. Verify Milton's vendor terms check fires within Tier 3 and the request does not stall looking for the old exception path.
+5. **Dashboard test (after Tier 7 removal):** Verify Lumbergh's dashboard shows test requests in real time.
 6. **Historical data test:** Pull a report on requests that previously passed through the deactivated tier. Verify all data is accessible and unchanged.
 
 ### After All 4 Tiers Are Removed (Full Regression)
 
 Once all elective tiers are deactivated, run a comprehensive validation:
 
-1. **End-to-end flow test:** Submit 10 requests spanning all request types (standard purchase, renewal, high-value, new vendor, vendor exception). Verify each routes through exactly the 3 mandatory tiers: Budget Verification → Compliance Review → Financial Controls Sign-off.
+1. **End-to-end flow test:** Submit 10 requests spanning all request types (standard purchase, renewal, high-value, new vendor, vendor exception). Verify each routes through exactly the 3 mandatory tiers: Tier 1 (Requestor Verification) → Tier 2 (Budget Authority Confirmation) → Tier 3 (Compliance / COI Check).
 2. **Volume test:** Submit 20 requests in rapid succession. Verify no routing bottleneck or system instability.
 3. **Compliance verification:** The Bobs review 5 completed requests and confirm the audit trail at each mandatory tier captures all required data points per the control matrix.
 4. **Cycle time measurement:** Compare average cycle time for the 10 test requests against the baseline from the parallel run. Expect 30%+ improvement.
-5. **Dashboard validation:** Lumbergh reviews the dashboard with all test data and confirms visibility is maintained.
-6. **Rollback drill:** Temporarily re-enable one deactivated tier, route a test request through it, then deactivate it again. Confirm the rollback and re-deactivation both work cleanly. This validates that rollback remains viable even after extended deactivation.
-7. **Intake gate under load:** Submit 5 intentionally incomplete requests and 5 complete requests simultaneously. Verify the gate correctly blocks the incomplete ones and queues the complete ones.
+5. **Vendor terms verification:** Submit 5 vendor-related requests and verify Milton's vendor terms check fires at Tier 3 for each. Cross-reference against Milton's 47-vendor tracking list to confirm coverage.
+6. **Dashboard validation:** Lumbergh reviews the dashboard with all test data and confirms visibility is maintained.
+7. **Rollback drill:** Temporarily re-enable one deactivated tier, route a test request through it, then deactivate it again. Confirm the rollback and re-deactivation both work cleanly. This validates that rollback remains viable even after extended deactivation.
+8. **Intake gate under load:** Submit 5 intentionally incomplete requests and 5 complete requests simultaneously. Verify the gate correctly blocks the incomplete ones and queues the complete ones.
 
 ### Monitoring Period
 
@@ -432,15 +440,18 @@ Once all elective tiers are deactivated, run a comprehensive validation:
 | Change | Where | What | Reversible |
 |--------|-------|------|------------|
 | Tier 4 status → Inactive | Routing configuration module | Status field change | Yes — set back to Active |
-| Tier 3 status → Inactive | Routing configuration module | Status field change | Yes — set back to Active |
-| Tier 1 status → Inactive | Routing configuration module | Status field change | Yes — set back to Active |
+| Tier 5 status → Inactive | Routing configuration module | Status field change | Yes — set back to Active |
 | Tier 6 status → Inactive | Routing configuration module | Status field change | Yes — set back to Active |
-| Routing rule: skip Tier 4 | Routing rules config | Path update: Tier 3 → Tier 5 | Yes — restore from backup |
-| Routing rule: skip Tier 3 | Routing rules config | Path update: Tier 2 → Tier 5 | Yes — restore from backup |
-| Routing rule: skip Tier 1 | Routing rules config | Path update: Intake → Tier 2 | Yes — restore from backup |
-| Routing rule: skip Tier 6 | Routing rules config | Path update: Tier 5 → Tier 7 | Yes — restore from backup |
+| Tier 7 status → Inactive | Routing configuration module | Status field change | Yes — set back to Active |
+| Routing rule: skip Tier 4 | Routing rules config | Path update: Tier 3 → Tier 5 (skip Tier 4) | Yes — restore from backup |
+| Routing rule: skip Tier 5 | Routing rules config | Path update: Tier 3 → Tier 6 (skip Tier 4 and 5) | Yes — restore from backup |
+| Routing rule: skip Tier 6 | Routing rules config | Path update: Tier 3 → Tier 7 (skip Tiers 4, 5, 6) | Yes — restore from backup |
+| Routing rule: skip Tier 7 | Routing rules config | Path update: Tier 3 is final step (skip Tiers 4, 5, 6, 7) | Yes — restore from backup |
+| Milton's vendor terms → Tier 3 | Tier 3 compliance config | Add vendor terms sub-step within Compliance / COI Check | No — new permanent capability. Should remain even if Tier 5 is rolled back. |
 
 **Critical pre-condition for every change:** Michael Bolton takes a labeled, timestamped configuration backup before each modification. This is the rollback safety net. No backup, no change.
+
+**Critical pre-condition for Tier 5 removal:** Milton's vendor terms verification must be operational within Tier 3 before Tier 5 is deactivated. This is not just a config change — it's a capability migration.
 
 ---
 
@@ -449,10 +460,12 @@ Once all elective tiers are deactivated, run a comprehensive validation:
 | Risk | Mitigation |
 |------|------------|
 | Platform instability from routing changes | One tier at a time. Sandbox-validated. Configuration backups before each change. Michael on standby. |
-| Tom escalates resistance after second tier removal | Space removals apart. Brief Tom before each. Give him monitoring role during validation periods. |
+| Tom escalates resistance after second tier removal | Both of Tom's tiers (4 and 5) are removed in sequence. Brief Tom before each. Frame the removals as capturing his institutional knowledge into the system rather than eliminating his role. Give him a monitoring role during validation periods. |
+| Milton's vendor terms function lost during Tier 5 removal | Hard prerequisite: Milton's vendor terms check must be formalized into Tier 3 before Tier 5 is deactivated. Pre-flight test with vendor requests verifies the integration. If vendor check fails at Tier 3, Tier 5 stays active as the fallback. |
+| Samir loses confidence in the process | Confirm Samir's Tier 2 (mandatory) role is unaffected. He retains his regulatory function. The redundant Tier 6 removal frees his time without reducing his authority. |
 | Lumbergh re-inserts himself after gate removal | Dashboard must be genuinely good. Monitor for informal blocking behavior post-removal. |
 | In-flight requests get stuck at deactivated tier | Drain strategy for each tier. Verify platform behavior when a tier is deactivated with requests in queue (sandbox test). |
-| Dual-role approver loses mandatory access | Phase 1 must confirm no elective-tier owner also holds a mandatory role. Samir is the most likely overlap; resolve before any removal. |
+| Dual-role approver loses mandatory access | Phase 1 must confirm no elective-tier owner also holds a mandatory role. Samir is the most likely overlap — his Tier 2 role must be protected when Tier 6 is removed. |
 | Cumulative routing changes create unexpected interactions | Full regression test after all 4 removals. Rollback drill validates recovery. |
 
 ---
@@ -470,5 +483,6 @@ Use this as a gate check before each Saturday morning deactivation.
 - [ ] Stakeholders notified (Thursday communication sent)?
 - [ ] Previous tier removal (if applicable) stable for 5+ business days?
 - [ ] Rollback procedure reviewed by Michael?
+- [ ] Milton's vendor terms operational in Tier 3? (Tier 5 removal only)
 
 If any item is NO, postpone to the following weekend. Do not proceed with an incomplete checklist.
