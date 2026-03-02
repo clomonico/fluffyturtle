@@ -35,7 +35,7 @@ Two dashboards serve two different questions. They share data infrastructure but
 
 ### 1.3 Design Principle
 
-The Executive Dashboard tells Lumbergh "Request REQ-2041 is sitting with the Bobs on Day 2 of 3." This dashboard tells everyone "The average request spends 18 hours waiting in queue at Compliance Review, and that number has increased 40% over the last quarter."
+The Executive Dashboard tells Lumbergh "Request REQ-2041 is sitting with the Bobs on Day 2 of 3." This dashboard tells everyone "The average request spends 18 hours waiting in queue at Compliance / COI Check, and that number has increased 40% over the last quarter."
 
 One tracks items. The other tracks the system.
 
@@ -109,19 +109,19 @@ Every metric is derived from the 43 data points defined in the instrumentation s
 │                                 │                                            │
 │  CYCLE TIME BY STEP             │  BOTTLENECK RANKING                        │
 │  ┌─────────────────────────┐    │  ┌──────────────────────────────────────┐  │
-│  │ Budget Verification     │    │  │ 1. Compliance Review    18.2h (med) │  │
-│  │ ████████░░  12.4h       │    │  │ 2. Financial Controls   14.6h (med) │  │
-│  │  [queue ██ 8.1h]        │    │  │ 3. Budget Verification  12.4h (med) │  │
+│  │ Budget Authority        │    │  │ 1. Compliance / COI    18.2h (med) │  │
+│  │ ████████░░  12.4h       │    │  │ 2. Requestor Verif.    14.6h (med) │  │
+│  │  [queue ██ 8.1h]        │    │  │ 3. Budget Authority     12.4h (med) │  │
 │  │  [work  ██ 4.3h]        │    │  │                                      │  │
 │  │                         │    │  │ Queue Time is 65% of total step      │  │
-│  │ Compliance Review       │    │  │ duration across all steps             │  │
+│  │ Compliance / COI       │    │  │ duration across all steps             │  │
 │  │ █████████████░  18.2h   │    │  └──────────────────────────────────────┘  │
 │  │  [queue ██████ 13.1h]   │    │                                            │
 │  │  [work  ██ 5.1h]        │    │  REJECTION RATE BY STEP                    │
 │  │                         │    │  ┌──────────────────────────────────────┐  │
-│  │ Financial Controls      │    │  │ Budget Verification   ███░░  8%     │  │
-│  │ ███████████░  14.6h     │    │  │ Compliance Review     █████░ 15%    │  │
-│  │  [queue █████ 10.2h]    │    │  │ Financial Controls    ████░░ 11%    │  │
+│  │ Requestor Verif.       │    │  │ Budget Authority      ███░░  8%     │  │
+│  │ ███████████░  14.6h     │    │  │ Compliance / COI     █████░ 15%    │  │
+│  │  [queue █████ 10.2h]    │    │  │ Requestor Verif.     ████░░ 11%    │  │
 │  │  [work  ██ 4.4h]        │    │  └──────────────────────────────────────┘  │
 │  └─────────────────────────┘    │                                            │
 │                                 │                                            │
@@ -179,7 +179,7 @@ All filters apply to every visualization on the page simultaneously. Selecting a
 | **Request type** | Procurement, Vendor onboarding, Contract renewal, Facilities, Credit card, Other | All |
 | **Department** | Populated dynamically from `dim_approver` and `requestor_dept` | All |
 | **Dollar amount** | Under $5K, $5K–$25K, $25K–$50K, $50K–$100K, Over $100K, Custom range | All |
-| **Tier** | Budget Verification, Compliance Review, Financial Controls | All |
+| **Tier** | Requestor Verification, Budget Authority Confirmation, Compliance / COI Check | All |
 
 ### 4.2 Drill-Down Behavior
 
@@ -299,9 +299,9 @@ Individual approver performance data is **not** displayed on this dashboard. The
 
 | Visible | Not Visible |
 |---|---|
-| "Compliance Review averages 18 hours" | "Bob Slydell averages 22 hours" |
-| "Budget Verification has 8% rejection rate" | "R. Kumar rejected 15 requests this quarter" |
-| "3 escalations last week at Financial Controls" | "S. Park was escalated twice" |
+| "Compliance / COI Check averages 18 hours" | "Bob Slydell averages 22 hours" |
+| "Budget Authority Confirmation has 8% rejection rate" | "R. Kumar rejected 15 requests this quarter" |
+| "3 escalations last week at Compliance / COI Check" | "S. Park was escalated twice" |
 
 Aggregate by step, tier, department, request type. Never by individual.
 
