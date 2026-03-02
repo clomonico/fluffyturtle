@@ -22,8 +22,8 @@ Define explicit SLA thresholds for each approval step so that every request has 
 | Tier | Step | Approver | What's Verified |
 |------|------|----------|-----------------|
 | 1 | Requestor Verification | Requestor / System | Submission completeness, documentation attached, correct request type |
-| 2 | Budget Authority Confirmation | Budget holder (department level) | Funds available, budget code valid, spend within delegation |
-| 3 | Compliance / COI Check | Samir (Compliance) | Regulatory requirements met, COI disclosures current, vendor eligibility |
+| 2 | Budget Authority Confirmation | Samir (Budget Authority) | Funds available, budget code valid, spend within delegation |
+| 3 | Compliance / COI Check | Compliance team | Regulatory requirements met, COI disclosures current, vendor eligibility |
 
 **Routing model (Epic 12):** Tier 1 → [Tier 2 + Tier 3 in parallel] → Complete
 
@@ -61,7 +61,7 @@ Tier 1 is largely system-driven (intake validation from Epic 9). The clock measu
 | Elevated | 48 hours | 24 hours |
 | Complex | 24 hours | 16 hours |
 
-Budget holders review spend against available budget. High-value requests get 48 hours because they may require cross-checking against quarterly commitments or consulting with finance.
+Samir reviews spend against available budget. High-value requests get 48 hours because they may require cross-checking against quarterly commitments or consulting with finance.
 
 ### Tier 3 — Compliance / COI Check
 
@@ -71,7 +71,7 @@ Budget holders review spend against available budget. High-value requests get 48
 | Elevated | 48 hours | 24 hours |
 | Complex | 72 hours | 48 hours |
 
-New vendor and vendor exception requests require the most compliance effort: vendor eligibility research, COI disclosure review, and sometimes regulatory database checks. The 72-hour window for complex requests reflects Samir's feedback that new vendor vetting genuinely takes time.
+New vendor and vendor exception requests require the most compliance effort: vendor eligibility research, COI disclosure review, and sometimes regulatory database checks. The 72-hour window for complex requests reflects compliance team feedback that new vendor vetting genuinely takes time.
 
 ### End-to-End Targets (with Parallel Routing)
 
@@ -121,8 +121,8 @@ Each tier has a defined escalation path. Escalation is automatic — the platfor
 | Tier | Step 1: Reminder | Step 2: Escalation | Step 3: Executive Escalation |
 |------|-----------------|-------------------|------------------------------|
 | **Tier 1** | Requestor gets a nudge at 75% of SLA | Requestor's manager notified at 100% | Request auto-cancelled at 200% with option to resubmit |
-| **Tier 2** | Budget holder gets a reminder at 75% of SLA | Budget holder's manager notified at 100% | Lumbergh notified at 150%; can override or reassign |
-| **Tier 3** | Samir gets a reminder at 75% of SLA | Compliance team lead notified at 100% | Lumbergh notified at 150%; can override or reassign |
+| **Tier 2** | Samir gets a reminder at 75% of SLA | Samir's manager notified at 100% | Lumbergh notified at 150%; can override or reassign |
+| **Tier 3** | Compliance approver gets a reminder at 75% of SLA | Compliance team lead notified at 100% | Lumbergh notified at 150%; can override or reassign |
 
 ### Escalation Timing Examples (Standard Request)
 
@@ -157,7 +157,7 @@ Parallel routing means Tier 2 and Tier 3 run concurrently. SLA implications:
 ### Planned Absence
 
 - Approvers must designate a delegate in the platform before going on leave.
-- If no delegate is set and the approver is marked out-of-office, the system auto-assigns to the next person in the role (budget holder's backup for Tier 2; compliance team member for Tier 3).
+- If no delegate is set and the approver is marked out-of-office, the system auto-assigns to the next person in the role (Samir's backup for Tier 2; compliance team member for Tier 3).
 - The SLA clock does not pause for planned absence. The delegation mechanism is the mitigation.
 
 ### System Outage
@@ -238,7 +238,7 @@ SLAs are not permanent. They should be tuned based on evidence.
 1. Pull SLA compliance, escalation, and extension data for the period
 2. Identify tiers or request types where thresholds are consistently too tight or too loose
 3. Propose adjustments with supporting data
-4. Review with affected approvers (Samir for Tier 3, budget holders for Tier 2)
+4. Review with affected approvers (Samir for Tier 2, compliance team for Tier 3)
 5. Lumbergh approves changes as executive sponsor
 6. Updated thresholds are configured in the platform and communicated to all users
 
@@ -256,15 +256,15 @@ These thresholds require review and sign-off before going live.
 
 | Stakeholder | Role in Review | Sign-off Required |
 |-------------|---------------|-------------------|
-| Samir | Validate Tier 3 SLAs are feasible for compliance work | Yes |
-| Budget holders (dept level) | Validate Tier 2 SLAs are feasible for budget review | Yes |
+| Samir | Validate Tier 2 SLAs are feasible for budget authority work | Yes |
+| Compliance team | Validate Tier 3 SLAs are feasible for compliance work | Yes |
 | Lumbergh | Executive sponsor approval of all thresholds | Yes |
 | Peter | Validate end-to-end targets against operational expectations | Advisory |
 | The Bobs | Confirm SLAs don't compromise audit trail requirements | Advisory |
 
 ### Approval Sequence
 
-1. Dallas circulates draft thresholds to Samir and budget holders for feasibility feedback
+1. Dallas circulates draft thresholds to Samir and compliance team for feasibility feedback
 2. Incorporate feedback, adjust thresholds if warranted
 3. Present revised thresholds to Lumbergh for executive sign-off
 4. Share final thresholds with the Bobs for audit trail confirmation
