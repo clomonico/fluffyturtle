@@ -22,8 +22,8 @@ The parallel run is manual dual-tracking, not technical dual-routing. Michael Bo
 
 | Path | Description | How It Operates |
 |------|-------------|-----------------|
-| **New path (primary)** | 3-tier regulatory flow: Budget Verification → Compliance & Regulatory Review → Financial Controls Sign-off. Intake gate enforces documentation completeness. Lumbergh Dashboard provides visibility. | Live in the system. All new requests route through this path. |
-| **Old path (reference)** | 7-tier flow: all original tiers including the 4 elective ones (Departmental Review, Secondary Budget Review, Operational Process Check, Executive Visibility Gate). | Tracked manually by Peter Gibbons in a comparison spreadsheet. Peter evaluates each request against the old routing rules and records what each deactivated tier would have done. |
+| **New path (primary)** | 3-tier regulatory flow: Tier 1 (Requestor Verification) → Tier 2 (Budget Authority Confirmation) → Tier 3 (Compliance / COI Check). Intake gate enforces documentation completeness. Lumbergh Dashboard provides visibility. | Live in the system. All new requests route through this path. |
+| **Old path (reference)** | 7-tier flow: all original tiers including the 4 elective ones — Tier 4 (Tom's Routing Review), Tier 5 (Tom's Exception Path), Tier 6 (Samir's Secondary Review), Tier 7 (Lumbergh's Visibility Gate). | Tracked manually by Peter Gibbons in a comparison spreadsheet. Peter evaluates each request against the old routing rules and records what each deactivated tier would have done. |
 
 ### Why Manual Dual-Tracking
 
