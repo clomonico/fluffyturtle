@@ -55,8 +55,8 @@ Tier 1 is mostly system-driven (intake validation from Epic 9). Escalation targe
 | Complex | 24 hours | 18 hours | 24 hours | 36 hours |
 
 **Tier 2 escalation chain:**
-1. **75%:** Budget holder receives in-platform notification + email reminder.
-2. **100%:** Budget holder's manager is notified. Original budget holder retains the task.
+1. **75%:** Samir receives in-platform notification + email reminder.
+2. **100%:** Samir's manager is notified. Samir retains the task.
 3. **150%:** Lumbergh is notified via executive alert (#30). Lumbergh can reassign to another qualified budget authority or approve directly if within his delegation.
 
 ### Tier 3 — Compliance / COI Check
@@ -68,8 +68,8 @@ Tier 1 is mostly system-driven (intake validation from Epic 9). Escalation targe
 | Complex | 72 hours | 54 hours | 72 hours | 108 hours |
 
 **Tier 3 escalation chain:**
-1. **75%:** Samir receives in-platform notification + email reminder.
-2. **100%:** Compliance team lead is notified. Samir retains the task.
+1. **75%:** Compliance approver receives in-platform notification + email reminder.
+2. **100%:** Compliance team lead is notified. Compliance approver retains the task.
 3. **150%:** Lumbergh is notified via executive alert. Lumbergh can reassign to another compliance-qualified reviewer or approve directly if within his delegation.
 
 ---
@@ -234,7 +234,7 @@ Perform all configuration in the test environment first, then promote to product
 
 **Step 5: Configure escalation targets**
 - Admin Console → Escalation Routing
-- Tier 2: First escalation → budget holder's direct manager; Executive → Lumbergh
+- Tier 2: First escalation → Samir's direct manager; Executive → Lumbergh
 - Tier 3: First escalation → compliance team lead; Executive → Lumbergh
 - Verify the org chart lookups resolve correctly for each approver
 
@@ -302,7 +302,7 @@ Tier 2 and Tier 3 run in parallel after Tier 1 completes (Epic 12). Auto-escalat
 | Scenario | System Behavior |
 |----------|----------------|
 | Approver designated a delegate before leave | Request auto-routes to delegate. SLA clock does not pause. Escalation targets the delegate (not the absent approver). |
-| Approver marked out-of-office, no delegate set | System auto-assigns to the next person in the role (budget holder backup for Tier 2; compliance team member for Tier 3). SLA clock does not pause. |
+| Approver marked out-of-office, no delegate set | System auto-assigns to the next person in the role (Samir's backup for Tier 2; compliance team member for Tier 3). SLA clock does not pause. |
 | Approver disappeared (no OOO, no delegate, not responding) | Normal escalation fires: 75% warning, 100% to manager, 150% to Lumbergh. Manager or Lumbergh can reassign. |
 
 ### System Outage During Escalation Window
@@ -369,7 +369,7 @@ All testing takes place in the test environment before production deployment. Mi
 | Configuration deployment | 1 day | Michael applies all configuration steps in test environment |
 | Individual scenario testing | 3 days | Run scenarios 1–12, document results, fix configuration issues |
 | Regression testing | 1 day | Re-run all scenarios after any fixes to confirm nothing broke |
-| Stakeholder validation | 1 day | Dallas reviews test results against SLA expectations; Samir confirms compliance logging |
+| Stakeholder validation | 1 day | Dallas reviews test results against SLA expectations; compliance team confirms compliance logging |
 | **Total testing** | **7 business days** |
 
 ---
@@ -390,7 +390,7 @@ The platform is brittle. If auto-escalation causes unexpected behavior in produc
    - Confirm that queued escalation jobs (if any) have been cancelled by the engine.
 
 3. **Communicate the rollback** (within 30 minutes)
-   - Notify stakeholders (Lumbergh, Samir, budget holders) that auto-escalation has been temporarily disabled.
+   - Notify stakeholders (Lumbergh, Samir, compliance team) that auto-escalation has been temporarily disabled.
    - Notify the requestor-facing team that SLA countdown indicators may show stale state until re-enabled or cleared.
 
 4. **Diagnose the issue** (timeline varies)
