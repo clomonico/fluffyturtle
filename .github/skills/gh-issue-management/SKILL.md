@@ -1,4 +1,3 @@
-```skill
 ---
 name: "gh-issue-management"
 description: "Create, link, and manage GitHub issues (Initiative > Epic > Story > Task) with types, labels, project association, and bulk operations using the gh CLI"
@@ -242,5 +241,4 @@ Remove temp body files after all issues are created:
 
 ```bash
 rm -f /tmp/initiative-body.md /tmp/epic-body.md /tmp/story-body.md /tmp/task-body.md
-```
 ```
